@@ -137,15 +137,6 @@ public class Catalogue {
                 using (XmlReader xmlReader = XmlReader.Create(stringReader))
                 {
                     XmlSerializer serializer = new XmlSerializer(typeof(CategoryEntry));
-
-                    while (xmlReader.ReadToFollowing("CategoryEntry"))
-                    {
-                        using (XmlReader entryReader = xmlReader.ReadSubtree())
-                        {
-                            CategoryEntry categoryEntry = (CategoryEntry)serializer.Deserialize(entryReader);
-                            classNames.Add(categoryEntry.Name);
-                        }
-                    }
                 }
             }
 
